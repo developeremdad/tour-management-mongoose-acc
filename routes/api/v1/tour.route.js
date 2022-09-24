@@ -3,7 +3,7 @@ const router = express.Router();
 // const productController = require('../controllers/product.controller');
 const tourController = require('../../../controllers/tour.controller');
 
-router.route('/').get(tourController.getTours)
+router.route('/').post(tourController.createTours)
 
 // router
 //     .route("/")

@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-// const productController = require('../controllers/product.controller');
 const tourController = require('../../../controllers/tour.controller');
 
-router.route('/').post(tourController.createTours)
+router.route('/')
+    .post(tourController.createTours)
+    .get(tourController.getTours)
 
 // router
 //     .route("/")

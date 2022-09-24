@@ -5,3 +5,9 @@ module.exports.createTourService = async (data) =>{
     const result = tour.save();
     return result;
 }
+
+
+module.exports.getToursServices = async () =>{
+    const result = Tour.find({})
+    return result;
+}

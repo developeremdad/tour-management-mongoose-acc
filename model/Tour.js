@@ -32,11 +32,6 @@ const tourSchema = mongoose.Schema({
             message: "status can't be {VALUE}"
         }
     },
-    travelDate:{
-        type: String,
-        required: [true, "Date is required."],
-        // match: [/^([1-9]|0[1-9]|[12][0-9]|3[0-1])\/([1-9]|0[1-9]|1[0-2])\/\d{4}$/, "Date must be follow the pattern: dd/mm/yyyy"]
-    },
     viewer: {
         type: Number,
         enum: [0],

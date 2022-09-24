@@ -34,7 +34,6 @@ const tourSchema = mongoose.Schema({
     },
     viewer: {
         type: Number,
-        enum: [0],
         default: 0
     }
 }, {

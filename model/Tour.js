@@ -4,7 +4,7 @@ const tourSchema = mongoose.Schema({
     place: {
         type: String,
         required: [true, 'Please provide a valid name'],
-        unique: [true, "place must be unique"],
+        unique: [true, "Place must be unique"],
         trim: true,
         minLength: [3, "Name must be at least 3 characters."],
         maxLength: [150, "Name is too larger."]

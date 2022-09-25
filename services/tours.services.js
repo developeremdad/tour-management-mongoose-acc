@@ -21,6 +21,13 @@ module.exports.getTrendingToursServices = async () =>{
 }
 
 
+module.exports.getCheapestToursServices = async () =>{
+    const tours = await Tour.find({}).sort("price")
+    const result = tours.slice(0, 3);
+    return result;
+}
+
+
 module.exports.getSingleTourServices = async (id) =>{
     // console.log(id);
     const result = await Tour.findOne({_id:id});

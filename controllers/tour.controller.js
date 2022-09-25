@@ -1,4 +1,4 @@
-const {createTourService, getToursServices, getSingleTourServices, updateSingleTourServices} = require('../services/tour.services');
+const {createTourService, getToursServices, getSingleTourServices, updateSingleTourServices, getTrendingToursServices} = require('../services/tour.services');
 
 // http://localhost:5000/api/v1/tours
 module.exports.createTours = async (req, res, _next) =>{
@@ -18,9 +18,27 @@ module.exports.createTours = async (req, res, _next) =>{
 }
 
 // http://localhost:5000/api/v1/tours
-module.exports.getTours = async (req, res, _next) =>{
+module.exports.getTours = async (_req, res, _next) =>{
     try {
         const result = await getToursServices()
+        res.status(200).json({
+            success: true,
+            message: "Data successfully founded.",
+            data: result
+        })
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: `Data can't get. error message: ${error.message}`
+        })
+    }
+}
+
+
+
+module.exports.getTrendingTours = async (_req, res, _next) =>{
+    try {
+        const result = await getTrendingToursServices()
         res.status(200).json({
             success: true,
             message: "Data successfully founded.",

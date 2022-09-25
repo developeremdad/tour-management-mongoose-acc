@@ -13,6 +13,14 @@ module.exports.getToursServices = async () =>{
 }
 
 
+
+module.exports.getTrendingToursServices = async () =>{
+    const tours = await Tour.find({}).sort("-viewer")
+    const result = tours.slice(0, 3);
+    return result;
+}
+
+
 module.exports.getSingleTourServices = async (id) =>{
     // console.log(id);
     const result = await Tour.findOne({_id:id});

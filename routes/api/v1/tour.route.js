@@ -6,11 +6,12 @@ router.route('/')
     .post(tourController.createTours)
     .get(tourController.getTours)
 
-// router.route('/:id').get(tourController.getSingleTour)
+    router.route('/trending').get(tourController.getTrendingTours)
 router.route("/:id")
     .get(tourController.getSingleTour)
 router.route("/:id")
     .patch(tourController.updateSingleTour)
+
 
 // router
 //     .route("/")

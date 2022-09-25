@@ -1,6 +1,7 @@
-const {updateSingleTourServices, getTrendingToursServices, getCheapestToursServices} = require('../services/tours.services');
+const {updateSingleTourServices, getTrendingToursServices, getCheapestToursServices} = require('../services/tour.services');
 
-// http://localhost:5000/api/v1/tours/632f22b00035c134ce82712c
+// . PATCH /tour/:id
+// http://localhost:5000/api/v1/tour/632f22b00035c134ce82712c
 module.exports.updateSingleTour = async (req, res, _next) =>{
     const id = req.params.id;
     const data = req.body;
@@ -19,6 +20,7 @@ module.exports.updateSingleTour = async (req, res, _next) =>{
     }
 }
 
+// GET /tour/trending --> Get top 3 viewed tour
 // http://localhost:5000/api/v1/tour/trending
 module.exports.getTrendingTours = async (_req, res, _next) =>{
     try {
@@ -36,7 +38,7 @@ module.exports.getTrendingTours = async (_req, res, _next) =>{
     }
 }
 
-
+// GET /tour/cheapest --> Get top 3 cheapest tours
 //  http://localhost:5000/api/v1/tour/cheapest
 module.exports.getCheapestTours = async (_req, res, _next) =>{
     try {

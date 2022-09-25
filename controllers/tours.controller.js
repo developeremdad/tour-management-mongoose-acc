@@ -30,7 +30,7 @@ module.exports.getTours = async (req, res, _next) =>{
 
         // gt, lt, gte, lte
         //Convert {price:{ gt:'50'}} to {price:{$ gt:50}}
-        // http://localhost:5000/api/v1/tours/?price[lt]=150
+        // http://localhost:5000/api/v1/tours/?price[lt]=60
         let filterString = JSON.stringify(req.query)
         filterString = filterString.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`)
         // filterString = filterString.replace(/\b(gt|gte|lt|lte|in)\b/g , '$$' + "$1");

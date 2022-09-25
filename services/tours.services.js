@@ -2,14 +2,20 @@ const Tour = require("../model/Tour")
 
 module.exports.createTourService = async (data) =>{
     const tour = new Tour(data);
-    const result = await tour.save();
+    const result = await tour.save({ runValidators: true });
     return result;
 }
 
 
-module.exports.getToursServices = async () =>{
-    const result = await Tour.find({})
-    return result;
+module.exports.getToursServices = async (filters, queries) =>{
+    const tours = await Tour.find(filters)
+    .skip(queries.skip)
+    .limit(queries.limit)
+    .select(queries.fields)
+    .sort(queries.sortBy)
+    const total = await Tour.countDocuments(filters)
+    const page = Math.ceil(total / queries.limit)
+    return {total, page, tours};
 }
 
 

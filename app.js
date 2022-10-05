@@ -14,7 +14,7 @@ app.use("/api/v1/tour", tourRoute)
 
 
 app.get("/", (_req, res) => {
-  res.send("Route is working! YaY!");
+  res.send("Route is working! YaY! Now, visit route /api/v1/tours");
 });
 
 module.exports = app;
